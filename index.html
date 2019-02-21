@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+
+	<link rel="stylesheet" href="assets/css/normalize.css">
+	<style>
+		body {
+			font-family: sans-serif;
+		}
+		.container {
+			width: 1100px;
+			margin-right: auto;
+			margin-left: auto;
+		}
+		.select {
+			width: 350px;
+		}
+		.select_title {
+			margin-bottom: 0;
+			border: 1px solid #c5c5c5;
+			background: #f6f6f6;
+			font-weight: normal;
+			color: #454545;
+			border-radius: 3px;
+			padding: .5em .5em .5em .7em;
+			font-size: 100%;
+			cursor: pointer;
+		}
+		.select_title:hover {
+			background: #ededed;
+			border-color: #cccccc;
+		}
+		.select .select_btn {
+			cursor: pointer;
+		}
+		.select li {
+			list-style-type: none;
+		}
+		.select ul {
+			margin-left: 0;
+			padding-left: 0;
+		}
+		.select .select-item {
+			margin-bottom: .5em;
+			padding-top: .5em;
+			margin-top: 0;
+			max-height: 450px;
+			overflow-y: auto;
+		}
+		.select .select-item_list {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			border-bottom: 1px solid #c5c5c5;
+			padding: .5em;
+			background: #f6f6f6;
+		}
+		.select .select-item_list + .select-item_list {
+			margin-top: .5em;
+		}
+		.select_group {
+			background: #f6f6f6;
+			padding: .5em;
+			display: flex;
+		}
+		.select_input {
+			width: 100%;
+			margin-right: .5em;
+		}
+
+		.select .ui-icon {
+			background-image: url(assets/images/ui-icons_444444_256x240.png);
+			width: 16px;
+			height: 16px;
+		}
+		.select .select_content {
+			display: none;
+		}
+
+		.select .ui-icon {
+			display: inline-block;
+			vertical-align: middle;
+			margin-top: -.25em;
+			position: relative;
+			text-indent: -99999px;
+			overflow: hidden;
+			background-repeat: no-repeat;
+		}
+
+		.select .arrow_close.ui-icon {
+			background-position: -32px -16px;
+		}
+
+		.select .arrow_open.ui-icon {
+			background-position: -65px -16px;
+		}
+
+		.select .danger_input {
+			border-color: red;
+		}
+
+		.select.show .select_title{
+			border: 1px solid #003eff;
+			background: #007fff;
+			font-weight: normal;
+			color: #ffffff;
+		}
+
+
+	</style>
+</head>
+<body>
+
+<div class="container">
+
+	<form>
+
+		<div class="select">
+			<h3 class="select_title">
+				<span class="select_arrow arrow_close ui-icon"></span>
+				Панель добовления значения в список
+			</h3>
+			<div class="select_content">
+				<input type="hidden" class="select_hidden" value="@@Первое значение@@Второе значение">
+				<ul class="select-item"></ul>
+				<div class="select_group">
+					<input type="text" class="select_input">
+					<button class="select_btn" type="button">
+						+
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="select">
+			<h3 class="select_title">
+				<span class="select_arrow arrow_close ui-icon"></span>
+				Панель добовления значения в список
+			</h3>
+			<div class="select_content">
+				<input type="hidden" class="select_hidden" value="@@Первое значение@@Второе значение">
+				<ul class="select-item"></ul>
+				<div class="select_group">
+					<input type="text" class="select_input">
+					<button class="select_btn" type="button">
+						+
+					</button>
+				</div>
+			</div>
+		</div>
+	</form>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		crossorigin="anonymous"></script>
+<script src="assets/js/index.js"></script>
+
+</body>
+</html>
