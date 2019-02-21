@@ -53,9 +53,17 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			flex-wrap: wrap;
 			border-bottom: 1px solid #c5c5c5;
 			padding: .5em;
 			background: #f6f6f6;
+		}
+		.select .select-item_list--stop {
+			font-size: 13px;
+			width: 100%;
+			background: yellow;
+			font-weight: bold;
+			color: red;
 		}
 		.select .select-item_list + .select-item_list {
 			margin-top: .5em;
@@ -107,12 +115,110 @@
 			font-weight: normal;
 			color: #ffffff;
 		}
+		.select .select-item_list {
+			position: relative;
+		}
+		.select .select-item_list--edit {
+			position: absolute;
+			right: 2.5em;
+			width: 32px;
+			height: 32px;
+			background: #b3b3b3 url("assets/images/edit.png") no-repeat center;
+			background-size: contain;
+			border-radius: 50%;
+			display: none;
+			cursor: pointer;
+		}
+
+		.select .select-item_list:hover .select-item_list--edit{
+			display: block;
+		}
+		.select .select-item_list .select-item_list--edit:hover {
+			background-color: #f3b2ed
+		}
+
+		.select .select-item_list--title {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
 
 
+		/*// modal*/
+		.modalDialog {
+			position: fixed;
+			font-family: Arial, Helvetica, sans-serif;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: rgba(0,0,0,0.8);
+			z-index: 99999;
+			-webkit-transition: opacity 400ms ease-in;
+			-moz-transition: opacity 400ms ease-in;
+			transition: opacity 400ms ease-in;
+			display: block;
+			pointer-events: auto;
+		}
+		.modalDialog .modal_edit_value {
+			width: 400px;
+			position: relative;
+			margin: 10% auto;
+			padding: 1em;
+			border-radius: 10px;
+			background: #fff;
+			background: -moz-linear-gradient(#fff, #999);
+			background: -webkit-linear-gradient(#fff, #999);
+			background: -o-linear-gradient(#fff, #999);
+		}
+		.modalDialog .modal_edit_value--body {
+			display: flex;
+			flex-wrap: wrap;
+			margin-bottom: 15px;
+		}
+		.modalDialog label {
+			margin-bottom: .5em;
+		}
+		.modalDialog .modal_edit_value--input {
+			width: 100%;
+		}
+		.modalDialog .modal_edit_value--footer {
+			display: flex;
+			justify-content: space-between;
+		}
+		.modalDialog .modal_edit_value--button {
+			cursor: pointer;
+			display: inline-block;
+			font-weight: 400;
+			text-align: center;
+			white-space: nowrap;
+			vertical-align: middle;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			border: 1px solid #f8f9fa;
+			padding: .375rem .75rem;
+			font-size: 1rem;
+			line-height: 1.5;
+			border-radius: .25rem;
+			transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+			color: #212529;
+			background-color: #f8f9fa;
+		}
+		.modalDialog .modal_edit_value--button:hover {
+			color: #212529;
+			background-color: #e2e6ea;
+			border-color: #dae0e5;
+		}
+		.modalDialog.modalDialog_close {
+			display: none;
+		}
 	</style>
 </head>
 <body>
 
+<!--// form-->
 <div class="container">
 
 	<form>
@@ -153,6 +259,28 @@
 	</form>
 
 </div>
+
+<!--// modal-->
+<div class="modalDialog modalDialog_close">
+	<div class="modal_edit_value">
+		<div class="modal_edit_value--body">
+			<label for="edit_value--input">
+				Изменить вашу запись ?
+			</label>
+			<input type="text" id="edit_value--input" class="modal_edit_value--input">
+		</div>
+		<div class="modal_edit_value--footer">
+			<button type="button" class="modal_edit_value--button" id="changeValue">
+				Сохранить
+			</button>
+
+			<button type="button" class="modal_edit_value--button" id="cancelValue">
+				Отменить
+			</button>
+		</div>
+	</div>
+</div>
+
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
 		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
